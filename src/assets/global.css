@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* variables */
+:root {
+    --primary: #4b71ff;
+    --secondary: #ebebeb;
+    --warning: #da0f41;
+    --mainspacing : 0.1rem;
+    --mainTransition : all 0.3s linear;
+  }
+  
+  /* base styles  */
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Mulish', sans-serif;
+    color: #4f515a;
+  }
+
+  html {
+      scroll-behavior: smooth;
+  }
+
+  /*---------- customizing own scroll bar ------------------*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(75, 113, 255, 0.4)
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary); 
+  }
+  
+  /*------- end of own scroll bar customization -----------*/
+  
+  body {
+    background: #fafafa;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+   /* buttons */
+  button, .btn { 
+    background: var(--secondary);
+    border-radius: 8px;
+    border: 0;
+    padding: 8px 12px;
+    font-weight: 600;
+    transition: var(--mainTransition);
+    cursor: pointer;
+  }
+  button:hover, .btn:hover {
+    background: var(--primary);
+    color: white;
+  }
+  button:disabled {
+    opacity: 0.5;
+    color: var(--secondary);
+    background: var(--primary);
+    cursor: not-allowed;
+  }
+  
+  /* forms */
+  form {
+    max-width: 400px;
+    margin: 0;
+    /* padding: 30px; */
+    border-radius: 8px;
+  }
+  input, textarea , select {
+    border: 0.50rem;
+    border: 1px solid var(--secondary);
+    padding: 10px;
+    outline: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 20px auto;
+  }
+
+  input[type='checkbox']{
+    display : inline-block;
+    margin: 0px 5px 20px 0px;
+    position : relative;
+    top : 2px;
+    width : 16px; 
+}
+
+  
+  /* error text */
+  .error {
+    color: var(--warning);
+    font-size: 14px;
+    margin: 16px 0;
+  }
