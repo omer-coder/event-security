@@ -78,7 +78,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+input{
+    margin : 20px auto;
+}
 
 </style>

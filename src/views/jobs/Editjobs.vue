@@ -116,6 +116,63 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+input , textarea{
+    margin : 20px auto;
+}
+.formContainer{
+    display: flex;
+    justify-content : center;
+}
+form{
+    width: 100%;
+}
+form h2{
+    text-align: center;
+    margin-bottom: 50px;
+}
+form div{
+    display: flex;
+    width : 105%;
+}
+form div input{
+    margin : 20px 20px 20px 0px; 
+}
 
+@media  screen and (max-width : 1025px) {
+    .formContainer {
+        margin : 30px auto;
+    }
+}
+
+@media screen and (max-width : 450px){
+    .formContainer {
+        width: 75%;
+        margin : 0px auto;
+        text-align:center;
+    }
+}
+
+@media screen and (max-width : 400px){
+    .formContainer {
+        width: 70%;
+        margin : 0px auto;
+        text-align:center;
+    }
+    form div input{
+        margin : 20px 14px 20px 0px; 
+    }
+}
+
+@media screen and (max-width : 375px){
+    .formContainer {
+        width: 65%;
+        margin : 30px auto;
+        text-align:center;
+    }
+     form div{
+        display: block;
+        width : 100%;
+    }
+}
 </style>

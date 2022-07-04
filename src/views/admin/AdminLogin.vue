@@ -46,5 +46,25 @@ export default {
 </script>
 
 <style scoped>
-
+input , textarea{
+    margin : 20px auto;
+}
+.formContainer{
+    display: flex;
+    justify-content : center;
+}
+form{
+    width: 100%;
+}
+form h2{
+    text-align: center;
+    margin-bottom: 50px;
+}
+form div{
+    display: flex;
+    width : 105%;
+}
+form div input{
+    margin : 20px 20px 20px 0px; 
+}
 </style>

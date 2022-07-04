@@ -82,9 +82,12 @@ export default {
 
     }
 }
-</script>
+</script >
 
-<style>
+<style scoped>
+input , textarea{
+    margin : 20px auto;
+}
 .formContainer{
     display: flex;
     justify-content : center;

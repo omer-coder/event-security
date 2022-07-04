@@ -1,5 +1,4 @@
 <template>
-  <div class="">
     <div class="background"></div>
     <div class="alert-box">
         <div class="icon">
@@ -8,11 +7,10 @@
         <header>Confirm</header>
         <p>Are you sure you want to permanently delete ?</p>
         <div class="btns">
-            <label for="check" @click="handleDelete(Job.id)">Yes , Delete!</label>
+            <label v-if="!isPending" for="check" @click="handleDelete(Job.id)">Yes , Delete!</label>
             <label for="check" @click="cancel">cancel</label>
         </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -23,7 +21,7 @@ export default {
     props: ['id'],
     setup(props , context){
 
-        const {deleteDoc , error} = useDocument('Jobs')
+        const {deleteDoc , isPending , error} = useDocument('Jobs')
 
         const {document : Job } = getDocument("Jobs" , props.id)
 
@@ -47,14 +45,13 @@ export default {
 
         }
 
-        return { handleDelete , Job , cancel }
+        return { handleDelete , Job , cancel , isPending }
     }
 
 }
 </script>
 
 <style scoped>
-
 .alert-box{
     position : absolute;
     top : 50%;
@@ -144,6 +141,49 @@ export default {
 
 .btns label:last-child:hover{
     background : #d9210d;
+}
+
+@media screen and (max-width : 780px){
+    .btns label{
+        margin : 10px 10px;
+    }
+}
+
+@media screen and (max-width : 600px){
+    .alert-box p{
+        font-size : 15px;
+    }
+}
+
+@media screen and (max-width : 525px){
+    .btns label{
+        font-size : 15px;
+    }
+    .alert-box .icon{
+        height : 75px;
+        width : 75px;
+        font-size : 45px;
+        line-height : 80px;
+    }
+}
+
+@media screen and (max-width : 450px){
+    .alert-box p{
+        font-size : 12px;
+    }
+    .btns label[data-v-2ac1c4e2]{
+        height : 45px;
+        line-height: 45px;
+        padding : 0 20px;
+        font-size : 10px;
+    }
+}
+
+@media screen and (max-width : 380px){
+    .alert-box p{
+        font-size : 10px;
+    }
+   
 }
 
 </style>

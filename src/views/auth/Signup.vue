@@ -3,44 +3,73 @@
       <!-- if not signed up -->
       <div class="AlreadySignup">
           
-          <div class="title">
-              <h3>Already Signed Up !?</h3>
-          </div>
-          
-          <div class="para">
-              <p>All user on over website will know ... Some Content <br/>
-                All user on over website will know ... Some Content <br/>
-                All user on over website will know ... Some Content  </p>
-          </div>
+          <div>
+            <div class="title">
+                <h3>Already Signed Up !?</h3>
+            </div>
+            
+            <div class="para">
+                <p>All user on over website will know ... Some Content <br/>
+                    All user on over website will know ... Some Content <br/>
+                    All user on over website will know ... Some Content  </p>
+            </div>
 
-          <!-- button -->
-          <div class='CenteredLogin'>
-              <button class="banner_btn"><router-link :to="{name : 'Login'}">Log In</router-link></button>
+            <!-- button -->
+            <div class='CenteredLogin'>
+                <button class="banner_btn"><router-link :to="{name : 'Login'}">Log In</router-link></button>
+            </div>
           </div>
           
       </div>
+      
       <!-- if signed up -->
-      <div class='signupSection'>
-          
+      <div class="logincontainer">
+      <div class='form login'>
+          <span class="title">Signup</span>
           <form @submit.prevent="handleSubmit">
-              <h3>Sign up for an account</h3>
-              <p>let's get you all set up so you can start looking for event security jobs </p>
-              <input type="text" placeholder="Display name" required v-model="displayName" />
-              <input type="email" placeholder="Email" required v-model="email" />
-              <input type="password" placeholder="Password" required v-model="password" />
-              <select v-model="status" required>
+          <!-- name -->
+            <div class="input-feild">
+                <input  type="text" placeholder="Enter Your Name" required v-model="displayName" />
+                <i class="uil uil-user icon"></i>
+            </div>
+            <!-- email -->
+            <div class="input-feild">
+                <input  type="text" placeholder="Enter Your Email" required v-model="email" />
+                <i class="uil uil-envelope icon"></i>
+            </div>
+            <!-- password -->
+            <div class="input-feild">
+                <input  :type="type" placeholder="Enter Your Password" required v-model="password" />
+                <i class="uil uil-lock icon"></i>
+                <i class="uil uil-eye-slash showhidePw" @click="showhidePassword" ref="showEye"></i>
+            </div>
+            <!-- status -->
+            <div class="input-feild">
+                <select v-model="status" required>
                   <option value="none" selected disabled hidden>Select An Option</option>
                   <option value="company">Company</option>
                   <option value="individual">Individual</option>
-              </select>
-              <div class="terms">
-                  <input type="checkbox" required v-model="terms" />
-                  <label>Accept terms and conditions</label>
-              </div>
-              <div v-if="error" class="error">{{error}}</div>
-              <button class="banner_btn" v-if="isPending">Loading...</button>
-              <button class="banner_btn" v-if="!isPending">Sign up</button>
+                </select>
+                <i class="uil uil-status icon"></i>
+            </div>
+            <!-- remember me  -->
+            <div class="checkbox-text">
+                <div class="checkbox-content">
+                    <input  type="checkbox" id="logcheck" required>
+                    <label for="logcheck" class="text">I accept all terms and conditions</label>
+                </div>
+            </div>
+            <div v-if="error" class="error">{{error}}</div>
+            <!-- button -->
+            <div class="input-feild button">
+                <button v-if="isPending">Loading...</button>
+                <button  v-if="!isPending">signup</button>
+                <!-- <input type="button" value="Login" v-if="!isPending" />
+                <input type="button" value="Loading..!" v-if="isPending"/> -->
+            </div>            
+
           </form>
+      </div>
       </div>
 
   </div>
@@ -68,6 +97,21 @@ export default {
         const {error , isPending , signup}  = useSignup()
         const {addDoc} = useCollection("Users")
 
+        const showEye = ref(null)
+
+        const type = ref('password')
+
+        const showhidePassword = () => {
+            console.log('clicked')
+            if(type.value === 'password'){
+                showEye.value.classList.replace('uil-eye-slash' , 'uil-eye')
+                type.value = 'text'
+            }else{
+                showEye.value.classList.replace('uil-eye' , 'uil-eye-slash')
+                type.value = 'password'
+            }   
+        }
+
         const handleSubmit = async () => {
 
             const res = await signup(displayName.value , email.value, password.value , status.value)
@@ -88,13 +132,14 @@ export default {
 
         }
 
-        return {displayName , email , password , status , terms , handleSubmit , error , isPending , user}
+        return {displayName , email , password , status , terms , handleSubmit , error , isPending , user , showhidePassword , type , showEye}
     }
 
 }
 </script>
 
 <style>
+
 .CenteredLogin {
     width: 50%;
     display : block;
@@ -102,29 +147,31 @@ export default {
 }
 
 .CenteredLogin button {
-    border : 2px solid #4b71ff;
-    color : #4b71ff;
+    border : 2px solid #4070f4;
+    background : #4070f4
 }
 
 .CenteredLogin a{
-    color : #4b71ff;
+    color : #fafafa;
 }
 
 .CenteredLogin button:hover{
-    background : #4b71ff;
-    border : 2px solid #4b71ff;
-    color : white;
+    background : #265DF2;
+    border : 2px solid #265DF2;
+    color : #fafafa;
 }
 
 .CenteredLogin a:hover{
-    color : white;
+    color : #fafafa;
 }
 form h3{
     margin-bottom: 30px;
 }
 
 .AlreadySignup{
-    margin-top: 90px;
+    display : flex;
+    align-items : center;
+    justify-content : center;
 }
 
 @media screen and (max-width : 875px){
