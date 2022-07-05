@@ -301,6 +301,10 @@
     </div>
     <!-- end of news and updates  -->
 
+    <!-- image slider -->
+    <!-- <ImagesSlider  :News="News" :featureds="featureds"/> -->
+    <!-- end of image slider -->
+
     <!-- why choose us -->
     <div class="small_container">
       <!-- title with after effect  -->
@@ -374,12 +378,13 @@
 
 import {ref} from 'vue'
 import Addnews from '@/components/Addnews'
+import ImagesSlider from '@/components/ImagesSlider'
 import getCollection from '@/composables/getCollection'
 import getUser from '@/composables/getUser'
 
 export default {
   name: 'Home',
-  components: { Addnews },
+  components: { Addnews , ImagesSlider },
   setup(){
 
     const showsignup = ref(true)

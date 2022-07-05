@@ -3,7 +3,7 @@
       <div class="row">
         <!-- image -->
         <div class = "col_2">
-          <img :src = "New.coverUrl" />
+          <img :src="New.coverUrl"/>
           <button class="homebtn" v-if="ownership" @click="handleDelete">Delete News</button>
         </div>
         <!-- details -->
@@ -43,7 +43,7 @@ export default {
 
     // ownership
     const ownership = computed(() => {
-      return New.value && user.value && user.value.uid === New.value.userId
+      return New.value && user.value && user.value.uid === New.value.userId;
     })
 
     // deleting news and image from storage

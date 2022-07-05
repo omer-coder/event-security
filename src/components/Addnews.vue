@@ -114,7 +114,9 @@ export default {
 </script>
 
 <style scoped>
-
+input{
+    margin : 20px auto;
+}
 .add-news{
     text-align: center;
     margin-top: 40px;
