@@ -16,7 +16,7 @@
 
             <!-- button -->
             <div class='signup'>
-                <button class="banner_btn"><router-link :to="{name : 'Signup'}">Sign Up</router-link></button>
+                <router-link :to="{name : 'Signup'}"><button class="banner_btn">Sign Up</button></router-link>
             </div>
           </div>
           
@@ -174,12 +174,10 @@ export default {
 
 .signup button{
     border : 2px solid #4070f4;
-    background : #4070f4
-}
-
-.signup a{
+    background : #4070f4;
     color : #fafafa;
 }
+
 
 .signup button:hover{
     background : #265DF2;
@@ -187,9 +185,6 @@ export default {
     color : #fafafa;
 }
 
-.signup a:hover{
-    color: #fafafa;
-}
 
 .notSignup{
     display : flex;

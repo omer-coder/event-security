@@ -16,7 +16,7 @@
 
             <!-- button -->
             <div class='CenteredLogin'>
-                <button class="banner_btn"><router-link :to="{name : 'Login'}">Log In</router-link></button>
+                <router-link :to="{name : 'Login'}"><button class="banner_btn">Log In</button></router-link>
             </div>
           </div>
           
@@ -148,12 +148,10 @@ export default {
 
 .CenteredLogin button {
     border : 2px solid #4070f4;
-    background : #4070f4
-}
-
-.CenteredLogin a{
+    background : #4070f4;
     color : #fafafa;
 }
+
 
 .CenteredLogin button:hover{
     background : #265DF2;
@@ -161,9 +159,6 @@ export default {
     color : #fafafa;
 }
 
-.CenteredLogin a:hover{
-    color : #fafafa;
-}
 form h3{
     margin-bottom: 30px;
 }
