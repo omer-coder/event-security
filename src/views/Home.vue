@@ -994,7 +994,7 @@ export default {
 
 @media screen and (max-width: 1150px){
   .col_3{
-    margin : 25px 4.2rem 30px 0px;
+    margin : 25px 6.2rem 30px 0px;
   }
   .background .col_2 p, .background2 .col_2 p{
     font-size : 10px;
