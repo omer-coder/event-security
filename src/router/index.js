@@ -29,6 +29,18 @@ const requiredAuth = (to , from , next) => {
 
 }
 
+const requiredNoAuth = (to , from , next) => {
+
+  let user = projectauth.currentUser
+
+  if(user){
+    next({name: 'Alljobs'})
+  }else{
+    next()
+  }
+
+}
+
 const adminAuth = (to , from , next) => {
   
   let admin = projectauth.currentUser
@@ -69,7 +81,8 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    beforeEnter : requiredNoAuth
   },
   {
     path: '/auth/login',

@@ -12,7 +12,7 @@
               lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
               lorem ipsum lorem ipsum lorem ipsum     lorem ipsum lorem ipsum lorem ipsum 
             </p>
-            <button class="homebtn"><router-link :to="{name : 'Alljobs'}">View Jobs</router-link></button>
+            <button class="homebtn"><router-link :to="{name : 'Signup'}">Sign Up</router-link></button>
         </div>
         <!-- image -->
         <div class="col_2">
